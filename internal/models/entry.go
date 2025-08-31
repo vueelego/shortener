@@ -11,6 +11,9 @@ type Entry struct {
 	OriginalUrl string     `gorm:"column:original_url;type:varchar(2048);not null" json:"originalUrl"`
 	Title       string     `gorm:"column:title;type:varchar(32);not null" json:"title"`
 	ExpiresAt   types.Time `gorm:"column:expires_at;type:datetime;not null" json:"expiresAt"`
+
+	User   User    `json:"user"`
+	Clicks []Click `json:"clicks"`
 }
 
 func (Entry) TableName() string {
