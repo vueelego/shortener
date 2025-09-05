@@ -11,6 +11,8 @@ type Click struct {
 	UserAgent  string     `gorm:"column:user_agent;type:varchar(512);not null" json:"userAgent"`
 	DeviceType string     `gorm:"column:device_type;type:varchar(32);not null" json:"deviceType"`
 	CreatedAt  types.Time `gorm:"column:created_at;not null" json:"createdAt"`
+
+	Entry Entry
 }
 
 func (Click) TableName() string {

@@ -3,11 +3,17 @@ package dbrepo
 import "shortener/internal/models"
 
 type ClickRepo interface {
+	Create(click *models.Click) error
+	ListByEntry(entryId uint, f Filter) (list []models.User, filter Filter, err error)
 }
 
 var _ ClickRepo = (*clickRepo)(nil)
 
 type clickRepo struct{}
+
+func NewClickRepo() *clickRepo {
+	return &clickRepo{}
+}
 
 func (*clickRepo) Create(click *models.Click) error {
 	return Db.Create(click).Error

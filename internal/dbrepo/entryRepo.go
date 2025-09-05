@@ -28,7 +28,7 @@ func (*entryRepo) Create(entry *models.Entry) error {
 }
 
 func (*entryRepo) GetById(id uint) (entry models.Entry, err error) {
-	err = Db.Preload("clicks", "entry_id = ?", id).Limit(10).First(&entry, id).Error
+	err = Db.Preload("Clicks", "entry_id = ?", id).Limit(10).First(&entry, id).Error
 	return entry, err
 }
 

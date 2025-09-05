@@ -22,6 +22,7 @@ func TestMain(m *testing.M) {
 	tRepo = &dbrepo.Repository{
 		UserRepo:  dbrepo.NewUserRepo(),
 		EntryRepo: dbrepo.NewEntryRepo(),
+		ClickRepo: dbrepo.NewClickRepo(),
 	}
 	os.Exit(m.Run())
 }
